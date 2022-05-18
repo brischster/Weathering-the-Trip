@@ -21,10 +21,16 @@ function getCity() {
   if (searchButton) {
     var searchCity = $(this).siblings("input").val();
     console.log(searchCity);
+    localStorage.setItem("searchedCity", searchCity);
   }
   if (!searchButton) {
     var searchCity = $(this).text();
   }
+
+  //   for (var i = 0; i < locationObj.length; i++) {
+  //     var newCityButton = $("<button></button>").text(searchCity);
+  //     // $(".list-group").append(newCityButton)
+  //   }
   console.log(searchButton);
   var requestUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&appid=${myKey}`;
 
@@ -37,6 +43,19 @@ function getCity() {
       var cityLat = locationObj[0].lat;
       var cityLong = locationObj[0].lon;
       getWeather(cityLat, cityLong);
+
+      var lastSearch = localStorage.getItem("searchedCity");
+      if (lastSearch !== null && searchButton) {
+        console.log(lastSearch);
+        var newCityButton = $("<button></button>").text(searchCity);
+        $(".list-group").append(newCityButton);
+      }
+
+      //   for (var i = 0; i < lastSearch.length; i++) {
+      //     var newCityButton = $("<button></button>").text(searchCity);
+      //     $(".list-group").append(newCityButton);
+      //   }
+      console.log(searchButton);
     });
 }
 
