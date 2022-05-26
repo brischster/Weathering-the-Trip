@@ -4,9 +4,19 @@
 }
 
 #dayOne {
-  border: 5px solid black;
+  border: 3px solid black;
 }
 
 #dayTwo {
-  border: 5px solid black;
+  border: 3px solid black;
+}
+
+#dayThree {
+  border: 3px solid black;
+}
+#dayFour {
+  border: 3px solid black;
+}
+#dayFive {
+  border: 3px solid black;
 }
